@@ -1,0 +1,44 @@
+- user:
+	id
+	username
+	
+- task:
+	+ id
+	+ name
+	
+- assignment:
+	+ id
+	+ user_id (Foreign Key >> user(id))
+	+ task_id (FK >> task(id))
+	+ start_index
+	+ end_index
+	+ date: ngày thực hiện assignment
+	+ status: enum(done, not_done)
+	
+- proofread:
+	+ id
+	+ input
+	+ expect: expect đã được sửa
+	+ expect_raw: expect gốc từ excel
+	+ modifier_date: thời gian thay đổi data cuối cùng
+	+ duration_review: thời gian review (client bắn lên)
+	+ ip_review: địa chỉ IP gửi data đến cuối cùng
+các trường raw để kiểm tra dữ liệu có thay đổi thật sự hay chỉ chờ/auto click để bấm next thôi
+
+- tone:
+	+ id
+	+ input
+    + professional
+    + casual
+    + social_post
+    + emoji
+    + polite
+	+ professional_raw: professional gốc từ excel
+	+ casual_raw
+    + social_post_raw
+    + emoji_raw
+    + polite_raw
+	+ modifier_date: thời gian thay đổi data cuối cùng
+	+ duration_review: thời gian review (client bắn lên)
+	+ ip_review: địa chỉ IP gửi data đến cuối cùng
+- log hiện chỉ lưu thời gian review data tương ứng nên để thẳng vào bảng data tương ứng
